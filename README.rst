@@ -47,7 +47,7 @@ Requirements
 ~~~~~~~~~~~~
 
 - `Python`_ 3.6+
-- `Django`_ 2.2+
+- `Django`_ 1.11
 - `redis-py`_ 3.0+
 - `Redis server`_ 2.8+
 
