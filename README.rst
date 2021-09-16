@@ -59,6 +59,11 @@ Requirements
 User guide
 ----------
 
+Django 1.11
+~~~~~~~~~~~~
+
+We reached the EOL of Django 1.11. Do not use this repo for production systems. I just wanted to demo the power and potential of django.
+
 Installation
 ~~~~~~~~~~~~
 
