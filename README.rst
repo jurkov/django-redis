@@ -1,5 +1,5 @@
 ==============================
-Redis cache backend for Django
+Redis cache backend for Django 1.11
 ==============================
 
 .. image:: https://jazzband.co/static/img/badge.svg
