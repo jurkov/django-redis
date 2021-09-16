@@ -16,32 +16,27 @@ jobs:
       matrix:
         python-version:
           - '3.6'
-          - '3.7'
-          - '3.8'
-          - '3.9'
         django-version:
-          - '2.2'
-          - '3.1'
-          - '3.2'
+          - '1.11'
         redis-version:
           - 'latest'
 
         # only test pre-release dependencies for the latest Python
         include:
           # latest Django with pre-release redis
-          - django-version: '3.2'
+          - django-version: '1.11'
             redis-version: 'master'
-            python-version: '3.9'
+            python-version: '3.6'
 
           # latest redis with pre-release Django
           - django-version: 'main'
             redis-version: 'latest'
-            python-version: '3.9'
+            python-version: '3.6'
 
           # pre-release Django and redis
           - django-version: 'main'
             redis-version: 'master'
-            python-version: '3.9'
+            python-version: '3.6'
 
     steps:
       - uses: actions/checkout@v2
@@ -85,15 +80,15 @@ jobs:
           DJANGO: ${{ matrix.django-version }}
           REDIS: ${{ matrix.redis-version }}
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v1
-        with:
-          env_vars: DJANGO,REDIS,PYTHON
-          flags: tests
-        env:
-          DJANGO: ${{ matrix.django-version }}
-          REDIS: ${{ matrix.redis-version }}
-          PYTHON: ${{ matrix.python-version }}
+#      - name: Upload coverage
+#        uses: codecov/codecov-action@v1
+#        with:
+#          env_vars: DJANGO,REDIS,PYTHON
+#          flags: tests
+#        env:
+#          DJANGO: ${{ matrix.django-version }}
+#          REDIS: ${{ matrix.redis-version }}
+#          PYTHON: ${{ matrix.python-version }}
 
   lint:
     name: Lint (${{ matrix.tool }})
@@ -137,8 +132,8 @@ jobs:
       - name: Run ${{ matrix.tool }}
         run: tox -e ${{ matrix.tool }}
 
-      - name: Upload coverage
-        if: ${{ matrix.tool == 'mypy' }}
-        uses: codecov/codecov-action@v1
-        with:
-          flags: mypy
+#      - name: Upload coverage
+#        if: ${{ matrix.tool == 'mypy' }}
+#        uses: codecov/codecov-action@v1
+#        with:
+#          flags: mypy
